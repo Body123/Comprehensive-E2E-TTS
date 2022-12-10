@@ -149,6 +149,8 @@ if __name__ == "__main__":
         assert args.source is None and args.text is not None and not args.teacher_forced
 
     # Read Config
+    print("args.dataset "+args.dataset)
+    print('='*100)
     preprocess_config, model_config, train_config = get_configs_of(args.dataset)
     configs = (preprocess_config, model_config, train_config)
     if preprocess_config["preprocessing"]["pitch"]["pitch_type"] == "cwt":
@@ -158,6 +160,8 @@ if __name__ == "__main__":
     train_config["path"]["ckpt_path"] = train_config["path"]["ckpt_path"]+"{}".format(path_tag)
     train_config["path"]["log_path"] = train_config["path"]["log_path"]+"{}".format(path_tag)
     train_config["path"]["result_path"] = train_config["path"]["result_path"]+"{}".format(path_tag)
+    print("args.restore_step "+args.restore_step)
+    print('='*100)
     os.makedirs(
         os.path.join(train_config["path"]["result_path"], str(args.restore_step)), exist_ok=True)
 
