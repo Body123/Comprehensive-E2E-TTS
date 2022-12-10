@@ -18,12 +18,14 @@ from utils.pitch_tools import denorm_f0
 
 def get_configs_of(dataset):
     config_dir = os.path.join("./config", dataset)
+    print("config_dir", config_dir)
     preprocess_config = yaml.load(open(
         os.path.join(config_dir, "preprocess.yaml"), "r"), Loader=yaml.FullLoader)
     model_config = yaml.load(open(
         os.path.join(config_dir, "model.yaml"), "r"), Loader=yaml.FullLoader)
     train_config = yaml.load(open(
         os.path.join(config_dir, "train.yaml"), "r"), Loader=yaml.FullLoader)
+    
     return preprocess_config, model_config, train_config
 
 
