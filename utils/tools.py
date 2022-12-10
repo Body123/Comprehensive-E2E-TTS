@@ -17,8 +17,6 @@ from utils.pitch_tools import denorm_f0
 
 
 def get_configs_of(dataset):
-    print(dataset)
-    return
     config_dir = os.path.join("./config", dataset)
     preprocess_config = yaml.load(open(
         os.path.join(config_dir, "preprocess.yaml"), "r"), Loader=yaml.FullLoader)
